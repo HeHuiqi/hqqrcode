@@ -63,7 +63,6 @@
     padding-top: 0.4em;
     padding-bottom: 0.4em;
     font-size: 1.5em;
-    display: block;
 }
 
 .qrcode-make-button:hover {
@@ -95,7 +94,7 @@
 }
 
 .app-side {
-    background-color: aquamarine;
+    background-color: rgba(220, 202, 226, 0.921);
     flex: 1;
 }
 
@@ -115,9 +114,36 @@
     font-size: 1.2em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    border-bottom: 1px solid green;
+    border-bottom: 0.5px solid rgb(209, 234, 235);
     padding-left: 0.5em;
     padding-bottom: 0.5em;
-    line-height: 1.5;
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;
+
+
+}
+
+.make-code-record-list-code {
+    font-size: 1.2em;
+    white-space: nowarp;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0.3em;
+    max-lines: 1;
+    flex: 1;
+
+}
+
+.make-code-record-list-code-delete-btn {
+    border: none;
+    margin-top: 1em;
+    background-color: rgb(21, 220, 164);
+    color: white;
+    border-radius: 0.2em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    height: 30px;
+    margin-right: 0.5em;
 
 }
