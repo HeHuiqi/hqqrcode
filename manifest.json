@@ -1,21 +1,21 @@
 {
     "icons": {
-        "16": "icon16.plasmo.9f44d99c.png",
-        "32": "icon32.plasmo.83dbbbab.png",
-        "48": "icon48.plasmo.a78c509e.png",
-        "64": "icon64.plasmo.15206795.png",
-        "128": "icon128.plasmo.c11f39af.png"
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "64": "icons/icon64.png",
+        "128": "icons/icon128.png"
     },
     "manifest_version": 3,
     "action": {
         "default_icon": {
-            "16": "icon16.plasmo.9f44d99c.png",
-            "32": "icon32.plasmo.83dbbbab.png",
-            "48": "icon48.plasmo.a78c509e.png",
-            "64": "icon64.plasmo.15206795.png",
-            "128": "icon128.plasmo.c11f39af.png"
+            "16": "icons/icon16.png",
+            "32": "icons/icon32.png",
+            "48": "icons/icon48.png",
+            "64": "icons/icon64.png",
+            "128": "icons/icon128.png"
         },
-        "default_popup": "popup.html"
+        "default_popup": ""
     },
     "version": "0.0.1",
     "author": "hehuiqi",
@@ -25,9 +25,13 @@
         "page": "options.html",
         "open_in_tab": true
     },
+    "background": {
+        "service_worker": "background/background.js"
+    },
     "permissions": [
         "tabs",
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
     "host_permissions": [
         "https://*/*"

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    </link>
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+    </link>
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div id="app_index" class="app">
+        <div class="app-main">
+            <h1>二维码生成器</h1>
+            <div class="qrcode-make">
+                <div class="qrcode-make-container">
+                    <textarea type="text" placeholder="输入内容" id="qrcode_input" class="qrcode-make-input"></textarea>
+                    <div class="qrcode-make-button-wrap">
+                        <button id="qrcode_make_button" class="qrcode-make-button">生成二维码</button>
+                    </div>
+                </div>
+                <div class="qrcode-show-contariner">
+                    <div id="qrcode_show_preview" class="qrcode-show-preview">
+                        <p class="qrcode-show-preview-tip">二维码预览</p>
+                    </div>
+                    <div id="qrcode_show" class="qrcode-show"></div>
+                    <div class="qrcode-make-button-wrap">
+                        <button id="qrcode_save_button" class="qrcode-make-button">保存二维码</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="app-side">
+            <h1>生成记录</h1>
+            <ul id="make_code_record_list" class="make-code-record-list">
+            </ul>
+        </div>
+
+    </div>
+    <script src="js/qrcode.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/index.js"></script>
+
+
+</body>
+
+</html>

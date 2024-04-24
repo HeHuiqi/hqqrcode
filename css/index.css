@@ -1,0 +1,123 @@
+.app {
+    margin: auto;
+    width: 80%;
+    background-color: rgb(91, 132, 221);
+    display: flex;
+}
+
+.app-main,
+.app-side {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-main {
+    flex: 2;
+    background-color: antiquewhite;
+    align-items: center;
+}
+
+.qrcode-make {
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.qrcode-make-container {
+    margin-left: 1em;
+    margin-right: 1em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.qrcode-make-input {
+    height: 168px;
+    padding: 0.8em;
+    border: 1px solid rgba(97, 94, 94, 0.275);
+    border-radius: 0.2em;
+    outline: none;
+    font-size: 1.5em;
+    line-height: 1.5;
+
+}
+
+.qrcode-make-input:focus {
+    border: 1px solid rgb(56, 54, 47);
+}
+
+.qrcode-make-button-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.qrcode-make-button {
+    border: none;
+    margin-top: 1em;
+    background-color: rgb(21, 220, 164);
+    color: white;
+    border-radius: 0.2em;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    font-size: 1.5em;
+    display: block;
+}
+
+.qrcode-make-button:hover {
+    cursor: pointer;
+    background-color: rgb(19, 190, 142);
+}
+
+.qrcode-show {
+    width: 168px;
+    height: 168px;
+    background-color: white;
+    margin-right: 1em;
+    padding: 0.5em;
+    border-radius: 0.2em;
+}
+
+.qrcode-show-preview {
+    position: absolute;
+    width: 168px;
+    height: 168px;
+    display: flex;
+    align-items: center;
+}
+
+.qrcode-show-preview-tip {
+    text-align: center;
+    width: 100%;
+    color: rgb(21, 220, 164);
+}
+
+.app-side {
+    background-color: aquamarine;
+    flex: 1;
+}
+
+.app-side h1 {
+    margin-left: 0.5em;
+}
+
+.make-code-record-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+
+}
+
+.make-code-record-list li {
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid green;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+    line-height: 1.5;
+
+}
