@@ -17,6 +17,11 @@
     align-items: center;
 }
 
+.app-main h1 {
+    font: bold 50px/30px "Adobe 宋体 Std L";
+    text-shadow: -3px -3px 10px white, 3px 3px 10px black;
+}
+
 .qrcode-make {
     display: flex;
     width: 100%;

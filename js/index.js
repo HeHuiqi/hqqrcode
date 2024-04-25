@@ -2,10 +2,10 @@
 const LOCAL_CODE_LIST_KEY = "hq_qrcodelist";
 
 let codeList = [];
-function remove(arr, value) {
-    const idx = arr.indexOf(value);
+function remove(value) {
+    const idx = codeList.indexOf(value);
     if (idx > -1) {
-        arr.splice(idx, 1);
+        codeList.splice(idx, 1);
     }
     updateLocalCodeList()
 }
@@ -27,14 +27,23 @@ let qrcode_input = document.getElementById('qrcode_input');
 // 输入完成，按下enter或失去焦点时，键触发
 qrcode_input.onchange = function (e) {
     let text = e.target.value;
+    makeCodeFromText(text)
+
+}
+function makeCodeFromText(text) {
     if (text) {
+        if (codeList.indexOf(text) > -1) {
+            return;
+        }
         makeCode(text);
         addCodeToList(text);
-        saveCode(text);
+        saveCode(text)
     }
+
 }
 function makeCode(text) {
     if (text) {
+        console.log('input---:' + text);
         qrcode_show_preview.style = 'display:none;'
         qrcode.makeCode(text);
     }
@@ -57,11 +66,16 @@ function updateLocalCodeList() {
     console.log("update-codeList:", codeList)
 
 }
-
+//生成二维码
+let qrcode_make_button = document.getElementById('qrcode_make_button');
+qrcode_make_button.onclick = function () {
+    const text = qrcode_input.value;
+    makeCodeFromText(text);
+}
 
 //保存二维码
-let qrcode_make_button = document.getElementById('qrcode_save_button');
-qrcode_make_button.onclick = function () {
+let qrcode_save_button = document.getElementById('qrcode_save_button');
+qrcode_save_button.onclick = function () {
     html2canvas(qrcode_show).then(canvas => {
         // 创建一个链接元素
         const link = document.createElement('a');
@@ -92,7 +106,7 @@ function addCodeToList(code) {
     }
 
     button.onclick = function (e) {
-        remove(codeList, code);
+        remove(code);
         make_code_record_list.removeChild(li);
     }
     const lis = make_code_record_list.childNodes;
