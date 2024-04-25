@@ -57,12 +57,20 @@
     align-items: center;
 }
 
-.qrcode-make-button {
+.btn {
     border: none;
-    margin-top: 1em;
     background-color: rgb(21, 220, 164);
     color: white;
     border-radius: 0.2em;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(19, 190, 142);
+}
+
+.qrcode-make-button {
+    margin-top: 1em;
     padding-left: 0.8em;
     padding-right: 0.8em;
     padding-top: 0.4em;
@@ -70,10 +78,7 @@
     font-size: 1.5em;
 }
 
-.qrcode-make-button:hover {
-    cursor: pointer;
-    background-color: rgb(19, 190, 142);
-}
+
 
 .qrcode-show {
     width: 168px;
@@ -141,11 +146,6 @@
 }
 
 .make-code-record-list-code-delete-btn {
-    border: none;
-    margin-top: 1em;
-    background-color: rgb(21, 220, 164);
-    color: white;
-    border-radius: 0.2em;
     padding-left: 0.8em;
     padding-right: 0.8em;
     height: 30px;

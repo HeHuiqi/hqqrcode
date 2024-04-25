@@ -93,7 +93,7 @@ function addCodeToList(code) {
     span.innerText = code;
 
     let button = document.createElement('button');
-    button.className = "make-code-record-list-code-delete-btn";
+    button.className = "btn make-code-record-list-code-delete-btn";
     button.innerText = '删除';
 
     let li = document.createElement('li');
