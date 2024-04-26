@@ -70,11 +70,77 @@ function updateLocalCodeList() {
 let qrcode_make_button = document.getElementById('qrcode_make_button');
 qrcode_make_button.onclick = function () {
     const text = qrcode_input.value;
+    console.log('qrcode_input.value:', qrcode_input.value)
     makeCodeFromText(text);
 }
-//识别二维码
+
+let isScaning = false;
+const qrcode_scan_video = document.getElementById('qrcode_scan_video');
+const qrcode_scan_video_canvas = document.getElementById('qrcode_scan_video_canvas');
+//扫描二维码
 const qrcode_scan_button = document.getElementById('qrcode_scan_button');
 qrcode_scan_button.onclick = function () {
+    if (isScaning) {
+        stopVideoStream()
+    } else {
+        startVideoStream()
+    }
+}
+// 开始摄像头视频流
+function startVideoStream() {
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment", width: 168, height: 168 } })
+        .then(function (stream) {
+            qrcode_scan_video.srcObject = stream;
+            qrcode_scan_video.onloadedmetadata = () => {
+                isScaning = true;
+                qrcode_scan_video.style.display = 'block';
+                qrcode_scan_video.play();
+                qrcode_scan_button.innerText = '停扫二维码';
+                requestAnimationFrame(drawVideoCapture);
+            };
+        }).catch((err) => {
+            stopVideoStream();
+        });;
+}
+function stopVideoStream() {
+    qrcode_scan_video.style.display = 'none';
+    qrcode_scan_button.innerText = '扫描二维码';
+    isScaning = false;
+    qrcode_scan_video.pause();
+    if (qrcode_scan_video.srcObject) {
+        qrcode_scan_video.srcObject.getTracks()[0].stop();
+    }
+}
+function drawVideoCapture() {
+    if (qrcode_scan_video.readyState === qrcode_scan_video.HAVE_ENOUGH_DATA) {
+
+        const width = qrcode_scan_video.videoHeight;
+        const height = qrcode_scan_video.videoWidth;
+
+        qrcode_scan_video_canvas.height = width;
+        qrcode_scan_video_canvas.width = height;
+
+        const canvas = qrcode_scan_video_canvas.getContext("2d", { willReadFrequently: true });
+        canvas.drawImage(qrcode_scan_video, 0, 0, width, height);
+        const imageData = canvas.getImageData(0, 0, width, height);
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+            inversionAttempts: "dontInvert",
+        });
+
+        if (code) {
+            // 扫描到二维码，输出结果
+            // qrResult.innerText = code.data;
+            qrcode_input.value = code.data;
+            stopVideoStream();
+        }
+    }
+    if (isScaning) {
+        requestAnimationFrame(drawVideoCapture);
+    }
+}
+//识别二维码
+const qrcode_scan_image_button = document.getElementById('qrcode_scan_image_button');
+qrcode_scan_image_button.onclick = function () {
     const qrcode_file_Input = document.getElementById('qrcode_file_Input');
     qrcode_file_Input.click();
 

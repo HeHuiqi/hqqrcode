@@ -1,6 +1,7 @@
 .app {
     margin: auto;
     width: 80%;
+    min-width: 910px;
     background-color: rgb(91, 132, 221);
     display: flex;
 }
@@ -93,6 +94,14 @@
     height: 168px;
     display: flex;
     align-items: center;
+}
+
+.qrcode-scan-video {
+    position: absolute;
+    width: 168px;
+    height: 168px;
+    background-color: aqua;
+    display: none;
 }
 
 .qrcode-show-preview-tip {

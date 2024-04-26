@@ -19,8 +19,8 @@
     },
     "version": "0.0.1",
     "author": "hehuiqi",
-    "name": "HHQ Qrcode tools",
-    "description": "useful tools",
+    "name": "HHQ 二维码工具",
+    "description": "二维码工具，原生js实现，支持二维码生成，通过摄像头扫码，选择图片识别",
     "options_ui": {
         "page": "options.html",
         "open_in_tab": true
