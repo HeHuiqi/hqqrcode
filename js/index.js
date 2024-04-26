@@ -72,7 +72,58 @@ qrcode_make_button.onclick = function () {
     const text = qrcode_input.value;
     makeCodeFromText(text);
 }
+//识别二维码
+const qrcode_scan_button = document.getElementById('qrcode_scan_button');
+qrcode_scan_button.onclick = function () {
+    const qrcode_file_Input = document.getElementById('qrcode_file_Input');
+    qrcode_file_Input.click();
 
+    qrcode_file_Input.onchange = function () {
+        const file = qrcode_file_Input.files[0];
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const img = new Image();
+            img.src = e.target.result;
+            img.onload = function () {
+                console.log('img.onload');
+
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+
+                const imageData = ctx.getImageData(0, 0, img.width, img.height);
+                const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+                if (code) {
+                    // console.log('扫描结果: ' + code.data);
+                    qrcode_input.value = code.data;
+                    new EpgToast().show({
+                        xPosition: "center",
+                        yPosition: "top",
+                        content: code.data,
+                        duration: 1000,
+                    });
+
+                } else {
+                    new EpgToast().show({
+                        xPosition: "center",
+                        yPosition: "top",
+                        content: '未识别到二维码',
+                    });
+                }
+                //识别完，input值置空，否则选择同样的文件不会触发 change 事件
+                qrcode_file_Input.value = ''
+
+            };
+        };
+
+        reader.readAsDataURL(file);
+    };
+
+
+}
 //保存二维码
 let qrcode_save_button = document.getElementById('qrcode_save_button');
 qrcode_save_button.onclick = function () {

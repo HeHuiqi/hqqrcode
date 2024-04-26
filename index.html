@@ -21,8 +21,12 @@
             <div class="qrcode-make">
                 <div class="qrcode-make-container">
                     <textarea type="text" placeholder="输入内容" id="qrcode_input" class="qrcode-make-input"></textarea>
-                    <div class="qrcode-make-button-wrap">
-                        <button id="qrcode_make_button" class="btn qrcode-make-button">生成二维码</button>
+                    <div class="qrcode-button-wrap">
+                        <button id="qrcode_make_button" class="btn qrcode-button">生成二维码</button>
+                        <input type="file" accept="image/*" capture="environment" id="qrcode_file_Input"
+                            style="display: none;">
+                        <button id="qrcode_scan_button" class="btn qrcode-button">识别二维码</button>
+
                     </div>
                 </div>
                 <div class="qrcode-show-contariner">
@@ -30,8 +34,8 @@
                         <p class="qrcode-show-preview-tip">二维码预览</p>
                     </div>
                     <div id="qrcode_show" class="qrcode-show"></div>
-                    <div class="qrcode-make-button-wrap">
-                        <button id="qrcode_save_button" class="btn qrcode-make-button">保存二维码</button>
+                    <div class="qrcode-button-wrap">
+                        <button id="qrcode_save_button" class="btn qrcode-button">保存二维码</button>
                     </div>
 
                 </div>
@@ -44,7 +48,10 @@
         </div>
 
     </div>
+
     <script src="js/qrcode.js"></script>
+    <script src="js/jsQR.js"></script>
+    <script src="js/Toast.js"></script>
     <script src="js/html2canvas.js"></script>
     <script src="js/util.js"></script>
     <script src="js/index.js"></script>
