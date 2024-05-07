@@ -225,6 +225,8 @@ function addCodeToList(code) {
     button.onclick = function (e) {
         remove(code);
         make_code_record_list.removeChild(li);
+        e.stopPropagation(); // 阻止事件冒泡传播,向父元素传递
+
     }
     const lis = make_code_record_list.childNodes;
     if (lis) {
