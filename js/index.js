@@ -15,8 +15,8 @@ let qrcode_show_preview = document.getElementById('qrcode_show_preview');
 let qrcode_show = document.getElementById("qrcode_show");
 
 var qrcode = new QRCode(qrcode_show, {
-    width: 160,
-    height: 160,
+    width: 300,
+    height: 300,
     colorDark: "#000000",
     colorLight: "#ffffff",
     correctLevel: QRCode.CorrectLevel.H
@@ -164,7 +164,12 @@ qrcode_scan_image_button.onclick = function () {
 
                 if (code) {
                     // console.log('扫描结果: ' + code.data);
-                    qrcode_input.value = code.data;
+                    const result = code.data;
+                    //将识别结果写入输入框
+                    qrcode_input.value = result;
+                    //在次生成一次
+                    // makeCodeFromText(result)
+
                     new EpgToast().show({
                         xPosition: "center",
                         yPosition: "top",
@@ -244,6 +249,17 @@ function showLocalCodeList() {
 
 }
 showLocalCodeList();
+
+//删除所有记录
+const code_record_delete_button = document.getElementById('code_record_delete_button')
+code_record_delete_button.addEventListener('click', () => {
+    let make_code_record_list = document.getElementById('make_code_record_list');
+
+    make_code_record_list.innerHTML = ''
+    codeList = []
+    updateLocalCodeList()
+
+})
 
 
 

@@ -64,11 +64,6 @@
     background-color: rgb(19, 190, 142);
 }
 
-.qrcode-button-wrap {
-    display: flex;
-    justify-content: space-around;
-}
-
 .qrcode-button {
     margin-top: 1em;
     padding-left: 0.8em;
@@ -78,6 +73,11 @@
     font-size: 1.5em;
 }
 
+
+.qrcode-button-wrap {
+    display: flex;
+    justify-content: space-around;
+}
 
 .qrcode-show {
     width: 168px;
@@ -117,6 +117,32 @@
 
 .app-side h1 {
     margin-left: 0.5em;
+}
+
+.code-record-header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+
+.code-record-title {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.code-record-delete {
+    display: flex;
+    align-items: center;
+    margin-right: 0.5em;
+}
+
+.record-button {
+    padding: 0.5em;
+    font-size: 1.2em;
 }
 
 .make-code-record-list {
